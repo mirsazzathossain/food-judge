@@ -1,5 +1,8 @@
 
-module.exports = function(app){
-    var views = require('./../controllers/views.controllers');
-    app.get('/home', views.home);
-}
+const router = require('express').Router();
+
+var views = require('./../controllers/views.controllers');
+router.get('/home', views.home);
+router.get('/', views.home);
+
+module.exports=router;

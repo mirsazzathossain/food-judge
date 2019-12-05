@@ -1,17 +1,33 @@
+const router = require('express').Router();
 const passport = require('passport');
 
-module.exports = function(app){
-    var auth = require('./../controllers/auth.controllers');
 
-    //Auth Login
-    app.get('/login', auth.login);
+var auth = require('./../controllers/auth.controllers');
 
-    //Auth Signup
-    app.get('/signup', auth.signup);
+const authCheck = (req, res, next)=>{
+    if(req.user){
+        //if user ius not logged in
+        res.redirect('/');
+    }else{
+        next();
+    }
+};
 
-    //Auth with google
-    app.get('/auth/google', passport.authenticate('google', {scope: ['profile']}));
+//Auth Login
+router.get('/login', authCheck, auth.login)
 
-    //callback route for google to redirect to
-    app.get('/auth/google/redirect', passport.authenticate('google'), auth.home);
-}
+//Auth Signup
+router.get('/signup', authCheck, auth.signup);
+
+//Auth Logout
+router.get('/logout', auth.logout);
+
+//Auth with google
+router.get('/google', authCheck, passport.authenticate('google', {scope: ['profile']}));
+
+//callback route for google to redirect to
+router.get('/google/redirect', passport.authenticate('google'), (req, res)=>{
+    res.redirect('/profile/');
+});
+
+module.exports=router;

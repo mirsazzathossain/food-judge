@@ -1,6 +1,7 @@
 var path = require('path');
 var express = require('express');
 const authRoutes = require('./routes/auth.routes');
+const profileRoutes = require('./routes/profile.routes');
 const viewRoutes = require('./routes/views.routes');
 const passportSetup = require('./passport-setup');
 var bodyParser = require('body-parser');
@@ -22,6 +23,7 @@ app.use(cookieSession({
 //initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
+console.log(__dirname);
 app.use(express.static(path.join(__dirname, 'views')));
 app.use(bodyParser.urlencoded({extended:true}));
 
@@ -36,8 +38,10 @@ mongoose.connect(keys.mongodb.dbURI,
 
 
 //set up routes
-authRoutes(app);
-viewRoutes(app);
+app.use('/auth',authRoutes);
+app.use('/profile', profileRoutes);
+app.use('/', viewRoutes);
+
 
 app.listen(keys.port, ()=>{
 	console.log('Server is running!');
