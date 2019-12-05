@@ -1,32 +1,14 @@
-'use strict';
-/**
- * Module dependencies.
- */
-var config = require('./config/config.js');
-var mongoose = require ('mongoose');
-var express = require ('express');
+var express = require('express');
+var path = require('path');
+var app = express();
 
-/**
- * Main application entry file.
- * Please note that the order of loading is important.
- */
+app.use(express.static(path.join(__dirname, 'views')));
 
-var uri = config.db.uri;
-mongoose.Promise = require('q').Promise;
-var db = mongoose.connect(uri,function(){
-	require('./seeds.js');
-});
-
-// Init the express application
-var app = require('./express.js')(db);
-
-// Bootstrap passport config
-require('./passport')();
-
-//app.use('/public', express.static('public'));
-
-app.listen(app.get('port'), function(){
-	console.log('Server running');
+app.get('/', (req, res)=>{
+	res.render('signup.ejs');
 })
 
-module.exports = app;
+
+app.listen(3000, ()=>{
+	console.log('Server is running!');
+});
