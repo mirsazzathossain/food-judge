@@ -1,5 +1,6 @@
 var path = require('path');
 var express = require('express');
+//const expressLayouts = require('express-ejs-layouts');
 const authRoutes = require('./routes/auth.routes');
 const profileRoutes = require('./routes/profile.routes');
 const viewRoutes = require('./routes/views.routes');
@@ -9,10 +10,13 @@ const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const flash = require('connect-flash');
+const session = require('express-session');
 
 var app = express();
 
 //set up view engine
+//app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
 app.use(cookieSession({
@@ -36,6 +40,23 @@ mongoose.connect(keys.mongodb.dbURI,
     console.log("Could not connect to MongoDB")
   });
 
+//Express session middleware
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  }));
+
+//Connect flash
+app.use(flash());
+
+//Global variables
+app.use(function(req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
+});
 
 //set up routes
 app.use('/auth',authRoutes);

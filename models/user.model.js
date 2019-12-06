@@ -1,33 +1,36 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
-var bcrypt = require('bcrypt-nodejs');
 
 var userSchema = new Schema({
     username: {
         type: String,
-        required: "Must require user name"
+        required: true
     },
-    googleId: {
+    email:{
+      type: String,
+      required: true
+    },
+    providerId: {
       type: String, 
+      default: ''
+    },
+    provider: {
+      type: String,
       default: ''
     },
     password: {
       type: String,
       default: ''
+    },
+    profilePic: {
+      type: String,
+      default: 'https://github.com/mirsazzathossain/WebApp/blob/master/assets/images/user.png'
+    },
+    creationYear:{
+      type: String,
+      required: true
     }
 });
-
-
-userSchema.methods.hashPassword = function(password){
-  return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-}
-
-userSchema.methods.comprePassword = function(password, hash){
-  return bcrypt.compareSync(password, hash);
-}
-
-
-
 
 const User = mongoose.model('user', userSchema);
 
