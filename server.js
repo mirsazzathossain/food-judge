@@ -3,6 +3,7 @@ var express = require('express');
 //const expressLayouts = require('express-ejs-layouts');
 const authRoutes = require('./routes/auth.routes');
 const profileRoutes = require('./routes/profile.routes');
+const restaurantRoutes = require('./routes/restaurant.routes');
 const viewRoutes = require('./routes/views.routes');
 const passportSetup = require('./passport-setup');
 var bodyParser = require('body-parser');
@@ -61,6 +62,7 @@ app.use(function(req, res, next) {
 //set up routes
 app.use('/auth',authRoutes);
 app.use('/profile', profileRoutes);
+app.use('/restaurant', restaurantRoutes);
 app.use('/', viewRoutes);
 
 

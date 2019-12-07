@@ -29,6 +29,10 @@ var userSchema = new Schema({
     creationYear:{
       type: String,
       required: true
+    },
+    role:{
+      type: String,
+      default: 'user'
     }
 });
 
