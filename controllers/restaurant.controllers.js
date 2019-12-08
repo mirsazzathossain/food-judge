@@ -13,3 +13,7 @@ module.exports.new = function(request, response){
         return response.status(200).json({restaurant:data});
     });
 }
+
+module.exports.near = function(req, res){
+    res.render('nearbyreasult.ejs', {latitude: req.latitude});
+}

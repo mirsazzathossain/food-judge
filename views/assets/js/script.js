@@ -37,3 +37,22 @@ smoothScrollTo("#rev");
 $(window).scroll(function(){
   $('nav').toggleClass('scrolled', $(this).scrollTop()>200);
 });
+
+
+/*-- Get geo location --*/
+
+$('#search').click(function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } 
+  function showPosition(position) {
+    localStorage.setItem('latitude',position.coords.latitude);
+    localStorage.setItem('longitude',position.coords.longitude);
+  }
+
+  var geolocation ={latitude: localStorage.getItem('latitude'),
+                    longitude: localStorage.getItem('longitude')};
+                    localStorage.clear();
+  $('#lat').val(geolocation.latitude);
+  $('#long').val(geolocation.longitude);
+});
