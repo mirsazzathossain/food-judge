@@ -1,39 +1,33 @@
-var map = L.map('mapid').setView([23.813371, 90.423376], 13);
+var lat = parseFloat($('#lat').text());
+var long = parseFloat($('#long').text());
+var name = $('#name').text();
+var ot = parseInt($("#ot").text());
+var ct = parseInt($("#ct").text());
+var rating = parseInt($("#rating").text());
+
+var h = parseInt(new Date().getHours());
+var m = parseInt(new Date().getMinutes());
+var time = (h*60)+m;
+
+for(var i=1; i<=rating; i++){
+    $(`#${i}`).css('background', '#ffc515');
+}
+
+
+if(time>=ot && time<=ct) $('#status').text('Open now');
+else $('#status').text('close now');
+
+var map = L.map('mapid').setView([lat, long], 13);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        L.marker([23.813371, 90.423376]).addTo(map)
-            .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-            .openPopup();
-        L.marker([23.817007, 90.424411]).addTo(map)
-            .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+        L.marker([lat, long]).addTo(map)
+            .bindPopup(name)
             .openPopup();
 
 
 
 
-
-function findPlaces() {
-// prepare variables (filter)
-var type = document.getElementById('gmap_type').value;
-var radius = document.getElementById('gmap_radius').value;
-var keyword = document.getElementById('gmap_keyword').value;
-var lat = document.getElementById('lat').value;
-var lng = document.getElementById('lng').value;
-var cur_location = new google.maps.LatLng(lat, lng);
-// prepare request to Places
-var request = {
-location: cur_location,
-radius: radius,
-types: [type]
-};
-if (keyword) {
-request.keyword = [keyword];
-}
-// send request
-service = new google.maps.places.PlacesService(map);
-service.search(request, createMarkers);
-}
                 

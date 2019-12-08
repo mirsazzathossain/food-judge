@@ -30,6 +30,10 @@ var restaurantSchema = new Schema({
         type: String,
         required: true
     },
+    rating:{
+        type: String,
+        default: '0'
+    },
     photo:{
         type: String,
         required: true

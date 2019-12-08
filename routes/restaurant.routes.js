@@ -79,7 +79,7 @@ router.get("/nearby", function(req, res) {
 
 
     Restaurant.find({name: y[0].name}, function(err,users){
-        res.render('nearbyreasult.ejs', users)
+        res.render('nearbyreasult.ejs', {name: users[0].name, lat: users[0].latitude, long: users[0].longitude, rating: users[0].rating, id: users[0]._id, ot: users[0].openingTime, ct: users[0].closingTime})
      });
 
 });
