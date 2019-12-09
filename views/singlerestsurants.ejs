@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Near By Restaurants</title>
+    <title>Add New Restaurant</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Vidaloka&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:300,400|Yellowtail" rel="stylesheet">
@@ -12,12 +12,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-
-    <!--Leaflet-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-   crossorigin=""/>
-
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/homestyle.css">
@@ -40,7 +34,6 @@
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <form class="form-inline my-2 my-lg-0">
-                    <button class="btn btn-outline-warning" type="button">Write a review</button>
                 </form>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     
@@ -55,48 +48,55 @@
     <!-- PAGE STUFF -->
 
     <div class="rela-block container">
-        <div id="mapid" style="height: 300px;"></div>
-        <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                    <th>Top resturents</th>
-                    <th></th>
-                    <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td>
-                        <a href="/restaurant/nearby/<%=id%>"><%= name %></a>
-                    </td>
-                    <td id="status">
-                        Open Now
-                    </td>
-                    
-                    <td>
-                        <span id="1" class="fa fa-star"></span>
-                        <span id="2" class="fa fa-star"></span>
-                        <span id="3" class="fa fa-star"></span>
-                        <span id="4" class="fa fa-star"></span>
-                        <span id="5" class="fa fa-star"></span>
-                    </td>
-                    </tr>
-                </tbody>
+            <div class="card mb-3">
+                <img src="/assets/images/single.PNG" class="card-img-top" alt="...">
+            <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th><%=restaurant.name%></th>
+                        <th></th>
+                        <th>
+                            <span id="11" class="fa fa-star"></span>
+                            <span id="12" class="fa fa-star"></span>
+                            <span id="13" class="fa fa-star"></span>
+                            <span id="14" class="fa fa-star"></span>
+                            <span id="15" class="fa fa-star"></span>
+                        </th>
+                        </tr>
+                    </thead>
+                    <div id="post">
+                        
+                    </div>
             </table>
-
-        
+            <table>
+                  <div>
+                        <tr style="margin-left: 15px;">
+                            <th>Comments:</th>
+                            <th>Rating:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><textarea name="" id="txt" cols="35" rows="5" style="margin-left: 15px;"></textarea></td>
+                            <td>
+                                <br>
+                                <span id="1" class="fa fa-star"></span>
+                                <span id="2" class="fa fa-star"></span>
+                                <span id="3" class="fa fa-star"></span>
+                                <span id="4" class="fa fa-star"></span>
+                                <span id="5" class="fa fa-star"></span>
+                                <br>
+                                <br>
+                                <button id="btn" type="button" class="btn btn-outline-warning" style="width: 140px">Submit</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                <div></div>
+            </div>
     </div>
-    <p id="lat" style="display: none;"><%= lat %></p>
-    <p id="long" style="display: none;"><%= long %></p>
-    <p id="id" style="display: none;"><%= id %></p>
-    <p id="ot" style="display: none;"><%= ot %></p>
-    <p id="ct" style="display: none;"><%= ct %></p>
-    <p id="rating" style="display: none;"><%= rating %></p>
-    <p id="name" style="display: none;"><%= name %></p>
 
-
-    
-
+    <P display='none'><%=user.name%></P>
+    <p><%=restaurant.id%?</p>
 
     <!-- JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -104,12 +104,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <!-- Bootstrap -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!--Leaflet-->
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-   crossorigin=""></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/alertify.min.js"></script>
     <!-- Custom js -->
     <script src="/assets/js/script.js" async defer></script>
-    <script src="/assets/js/map.js"></script>
+    <script src="/assets/js/review.js" async defer></script>
+
 </body>
 </html>
