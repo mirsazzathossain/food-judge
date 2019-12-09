@@ -43,14 +43,18 @@ $('#5').click(function(){
     $('#4').css('color', '#ffc107');
     $('#5').css('color', '#ffc107');
     rating=5;
-})
+});
 
+var id= $('#id').text();
 $('#btn').click(function(){
-    
+    var post = {comment: "", rating: '', restaurantId: ''};
+    post.comment = $('#txt').val();
+    post.rating =rating;
+    post.restaurantId = $('#id').html();
     $.ajax({
         method: "POST",
-        url: '/post',
-        data: article
+        url: '/restaurant/nearby/post',
+        data: post
         }).done(function(response){
         console.log(response);
         }).fail(function(response){

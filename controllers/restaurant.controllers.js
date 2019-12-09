@@ -1,4 +1,7 @@
 const Restaurant = require('../models/restaurant.model');
+var Post = require('./../models/post.model');
+
+
 
 
 module.exports.add = function(req, res){
@@ -30,3 +33,16 @@ module.exports.read = function(request, response){
         })
     })
   }
+
+
+  module.exports.post = function(request, response){
+    let post = new Post(request.body);
+    console.log(post)
+    post.save(function(err, data){
+        if(err){
+        return response.status(400).json({msg: "All fields are required!"});
+        }
+        return response.status(200).json({post:data});
+    });
+}
+

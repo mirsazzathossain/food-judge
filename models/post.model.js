@@ -2,10 +2,7 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
 
 var postSchema = new Schema({
-    username:{
-        type: String,
-        required: true
-    },
+    
     comment:{
         type: String,
         required: true

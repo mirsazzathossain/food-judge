@@ -4,6 +4,8 @@ var cookieParser = require("cookie-parser");
 router.use(cookieParser());
 const Restaurant = require('../models/restaurant.model');
 const Window = require('window');
+var Post = require('./../models/post.model');
+
  
 const window = new Window();
 
@@ -86,9 +88,7 @@ router.get("/nearby", function(req, res) {
 
 
 router.get('/nearby/:id', restaurant.read);
-router.post('/post', function(){
-    
-})
 
+router.post('/nearby/post', restaurant.post);
 
 module.exports=router;
