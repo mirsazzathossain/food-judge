@@ -55,22 +55,22 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <form class="form-inline my-2 my-lg-0">
                         <%if(!user){%>
-                        <button class="btn btn-outline-warning" type="button">Write a review</button>
+                        <button class="btn btn-outline-warning" onclick="window.location.href = '/auth/login';" type="button">Write a review</button>
                         <%}else if(user.role != 'admin'){%>
-                        <button class="btn btn-outline-warning" type="button">Write a review</button>
+                        <button class="btn btn-outline-warning" onclick="window.location.href = '/restaurant/nearby';" type="button">Write a review</button>
                         <%}else{%>
-                        <button class="btn btn-outline-warning" type="button">Add resturent</button>
+                        <button class="btn btn-outline-warning" onclick="window.location.href = 'restaurant/add';" type="button">Add resturent</button>
                         <%}%>
                     </form>
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#home"><i class="fa fa-home" aria-hidden="true"></i>Home</span></a>
+                            <a class="nav-link" href="/"><i class="fa fa-home" aria-hidden="true"></i>Home</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#review"><i class="fa fa-star" aria-hidden="true"></i>Reviews</a>
+                            <a class="nav-link" href="/reviews"><i class="fa fa-star" aria-hidden="true"></i>Reviews</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-utensils" aria-hidden="true"></i>Restaurants</a>
+                            <a class="nav-link" href="/restaurants"><i class="fa fa-utensils" aria-hidden="true"></i>Restaurants</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Contact Us</a>

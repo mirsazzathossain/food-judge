@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><%= user.username %></title>
+    <title>Add New Restaurant</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Vidaloka&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:300,400|Yellowtail" rel="stylesheet">
@@ -34,7 +34,6 @@
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <form class="form-inline my-2 my-lg-0">
-                    <button class="btn btn-outline-warning" onclick="window.location.href = '/restaurant/nearby';" type="button">Write a review</button>
                 </form>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     
@@ -49,57 +48,34 @@
     <!-- PAGE STUFF -->
 
     <div class="rela-block container">
-        <div class="rela-block profile-card">
-            <div class="profile-pic" id="profile_pic" style="background: url(<%=user.profilePic%>) no-repeat;"></div>
-            <div class="rela-block profile-name-container">
-                <div class="rela-block user-name" id="user_name"><%=user.username%></div>
+            <div class="card mb-3">
+                <img src="./assets/images/restaurant.jpg" class="card-img-top" alt="...">
+                <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td><%=rest[0].name%></td>
+                          </tr>
+                          
+                          <tr>
+                                <th scope="row">1</th>
+                                <td><%=rest[1].name%></td>
+                              </tr>
+                              <tr>
+                                    <th scope="row">1</th>
+                                    <td><%=rest[2].name%></td>
+                                  </tr>
+                        </tbody>
+                      </table>
+                
             </div>
-
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                    <th>User Info</th>
-                    <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td>Email</td>
-                    <td><%= user.email %></td>
-                    </tr>
-                    <tr>
-                    <td>Role</td>
-                    <td><%= user.role %></td>
-                    </tr>
-                    <tr>
-                    <td>Provider</td>
-                    <td><%= user.provider %></td>
-                    </tr>
-                </tbody>
-            </table>
-            <br>
-            <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                        <th>Comunity Info</th>
-                        <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td>Member Since</td>
-                        <td><%= user.creationYear %></td>
-                        </tr>
-                       
-                    </tbody>
-                </table>
-        </div>
-        
     </div>
-
-
-    
-
 
     <!-- JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -107,7 +83,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <!-- Bootstrap -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/alertify.min.js"></script>
     <!-- Custom js -->
     <script src="/assets/js/script.js" async defer></script>
+    <script src="/assets/js/review.js" async defer></script>
+
 </body>
 </html>
