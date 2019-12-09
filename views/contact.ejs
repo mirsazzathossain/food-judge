@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Restaurant</title>
+    <title>Add New Restaurant</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Vidaloka&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:300,400|Yellowtail" rel="stylesheet">
@@ -12,10 +12,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/css-hamburgers/hamburgers.min.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/homestyle.css">
     <link href="/assets/css/profile.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/asstes/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/select2/select2.min.css">
+
+
 
     <!-- Front Awesome -->
     <script src="https://kit.fontawesome.com/44fef32f13.js" crossorigin="anonymous"></script>
@@ -47,55 +54,48 @@
         <!-- End Navbar -->
     <!-- PAGE STUFF -->
 
-    <div class="rela-block container">
-            <div class="card mb-3">
-                <img src="/assets/images/single.PNG" class="card-img-top" alt="...">
-            <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                        <th><%=restaurant.name%></th>
-                        <th></th>
-                        <th>
-                            <span id="11" class="fa fa-star"></span>
-                            <span id="12" class="fa fa-star"></span>
-                            <span id="13" class="fa fa-star"></span>
-                            <span id="14" class="fa fa-star"></span>
-                            <span id="15" class="fa fa-star"></span>
-                        </th>
-                        </tr>
-                    </thead>
-                    <div id="post">
-                        
+    <div class="contact1">
+            <div class="container-contact1">
+                <div class="contact1-pic js-tilt" data-tilt>
+                    <img src="/assets/images/img-01.png" alt="IMG">
+                </div>
+    
+                <form class="contact1-form validate-form" action="https://formspree.io/xwkpawjg" method="POST">
+                    <span class="contact1-form-title">
+                        Get in touch
+                    </span>
+    
+                    <div class="wrap-input1 validate-input" data-validate = "Name is required">
+                        <input class="input1" type="text" name="name" placeholder="Name">
+                        <span class="shadow-input1"></span>
                     </div>
-            </table>
-            <table>
-                  <div>
-                        <tr style="margin-left: 15px;">
-                            <th>Comments:</th>
-                            <th>Rating:</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><textarea name="" id="txt" cols="35" rows="5" style="margin-left: 15px;"></textarea></td>
-                            <td>
-                                <br>
-                                <span id="1" class="fa fa-star"></span>
-                                <span id="2" class="fa fa-star"></span>
-                                <span id="3" class="fa fa-star"></span>
-                                <span id="4" class="fa fa-star"></span>
-                                <span id="5" class="fa fa-star"></span>
-                                <br>
-                                <br>
-                                <button id="btn" type="button" class="btn btn-outline-warning" style="width: 140px">Submit</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                <div></div>
+    
+                    <div class="wrap-input1 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                        <input class="input1" type="email" name="_replyto" placeholder="Email">
+                        <span class="shadow-input1"></span>
+                    </div>
+    
+                    <div class="wrap-input1 validate-input" data-validate = "Subject is required">
+                        <input class="input1" type="text" name="subject" placeholder="Subject">
+                        <span class="shadow-input1"></span>
+                    </div>
+    
+                    <div class="wrap-input1 validate-input" data-validate = "Message is required">
+                        <textarea class="input1" name="message" placeholder="Message"></textarea>
+                        <span class="shadow-input1"></span>
+                    </div>
+    
+                    <div class="container-contact1-form-btn">
+                        <button class="contact1-form-btn">
+                            <span>
+                                Send Email
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                </form>
             </div>
-    </div>
-
-    <p id="id" display='none'><%=restaurant.id%></p>
+        </div>
 
     <!-- JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -107,6 +107,16 @@
     <!-- Custom js -->
     <script src="/assets/js/script.js" async defer></script>
     <script src="/assets/js/review.js" async defer></script>
+    <script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="/assets/vendor/select2/select2.min.js"></script>
+    <script src="/assets/vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+    </script>
+    	<script src="/assets/js/main.js"></script>
+
 
 </body>
 </html>

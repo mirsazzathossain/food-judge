@@ -29,6 +29,8 @@ router.get('/reviews', function(req, res){
      });
 });
 
-
+router.get('/contact', (req, res)=>{
+    res.render('contact.ejs');
+})
 
 module.exports=router;
