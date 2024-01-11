@@ -29,7 +29,7 @@
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.17.0",
-    "follow-redirects": "^1.9.0",
+    "follow-redirects": "^1.15.4",
     "https-proxy-agent": "^3.0.1",
     "mongoose": "^5.7.13",
     "node": "^13.3.0",
